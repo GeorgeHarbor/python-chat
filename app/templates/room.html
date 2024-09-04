@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-center">{{room_name}}</h2>
+    <div class="card">
+        <div class="card-body scrollable-card">
+            <ul class="list-unstyled">
+              {% for message in room.messages %}
+                <li class="list-group-item">
+                  <strong>{{message['username']}}</strong>: <div class="message">{{message['message']}}</div> <div class="message-timestamp">({{message['timestamp']}})</div>
+                </li>
+              {% endfor %}
+            </ul>
+        </div>
+        <div class="card-footer">
+            <form method="post">
+                <div class="input-group mt-2">
+                    <input type="text" class="form-control" name="message" placeholder="Enter your message" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button class="btn btn-danger" id="leaveRoom">Leave Room</button>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+<script type="text/javascript">
+  var roomName = "{{room_name}}"
+  var username = "{{session.get('username')}}"
+</script>
+<script src="{{ url_for('static', filename='scripts/room.js') }}"></script>
+{% endblock %}

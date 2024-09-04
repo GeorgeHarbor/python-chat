@@ -3,5 +3,5 @@ from flask import Blueprint
 
 main = Blueprint('main', __name__)
 
-from . import routes as routes
+from . import routes, events
 

@@ -1,0 +1,28 @@
+li strong {
+  color: black;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+li .message {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+li .message-timestamp {
+  color: grey;
+  font-size: 12px;
+  display: flex;
+  justify-content: end
+}
+
+.card-body {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+.container{
+  display:flex;
+  gap: .5rem;
+  flex-direction: column;
+}
